@@ -4,8 +4,8 @@ import React, {
 import {
     View,
     Text,
-    ScrollView,
-    RefreshControl
+    SafeAreaView,
+    StatusBar
 } from 'react-native';
 import Header from "../Header/index";
 import {
@@ -17,21 +17,26 @@ const HomePage = ({
 }) => {
     const goBack = useCallback(() => navigation.goBack(), [navigation])
     const messages = useSelector(state => state.HomePageReducer.messages);
-
     //realize fetch data and async getting data
 
     return (
-        <View
-
+        <SafeAreaView
+            style={{
+                flex: 1
+            }}
         >
-            <Header
-                backCallback={goBack}
-                navigation={navigation}
-                cogVisible={true}
-                arrowVisible={false}
-            />
-            <Text>Beta</Text>
-        </View>
+            <View
+
+            >
+                <Header
+                    backCallback={goBack}
+                    navigation={navigation}
+                    cogVisible={true}
+                    arrowVisible={false}
+                />
+                <Text>BODY</Text>
+            </View>
+        </SafeAreaView>
     );
 };
 

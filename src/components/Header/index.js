@@ -1,83 +1,32 @@
 import React from 'react';
 import {
     Text,
-    TouchableOpacity,
+    StatusBar,
     View,
+    Image,
 } from "react-native";
-import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
-import {faAngleLeft, faCog} from "@fortawesome/free-solid-svg-icons";
+import styles from "./styles";
+
+const ElomiasAvatar = require("../../assets/images/avatar.png");
+
 
 const Index = ({
-    cogVisible,
-    arrowVisible,
     backCallback,
     navigation
 }) => {
     return (
-        <View style={{
-            justifyContent: 'space-between',
-            flexDirection: "row",
-            marginTop: 20,
-            alignItems: "center",
-            borderBottomWidth: 1,
-            borderBottomColor: "#E2E2E2"
-        }}>
-            {
-                arrowVisible ?
-                    (<View
-                        style={{
-                            display: "flex",
-                            marginLeft: 20,
-                        }}
-                    >
-                        <TouchableOpacity
-                            onPress={() => backCallback()}
-                        >
-                            <FontAwesomeIcon icon={faAngleLeft} size={32} color={"#A6AAB4"}/>
-                        </TouchableOpacity>
-                    </View>)
-                    : (<View
-                        style={{
-                            display: "flex",
-                            marginLeft: 52,
-                        }}
-                    >
-                    </View>)
-            }
-
-            <Text
-                style={{
-                    fontFamily: "Lobster",
-                    fontSize: 35,
-                    color: "#F69974"
-                }}
-            >
-                MyLogo
-            </Text>
-
-            {
-                cogVisible ?
-                    (<View
-                        style={{
-                            display: "flex",
-                            marginRight: 20
-                        }}
-                    >
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('Settings')}
-                        >
-                            <FontAwesomeIcon icon={faCog} size={32} color={"#A6AAB4"}/>
-                        </TouchableOpacity>
-                    </View>)
-                    : (<View
-                        style={{
-                            display: "flex",
-                            marginRight: 52,
-                        }}
-                    >
-                    </View>)
-            }
-
+        <View style={styles.container}>
+            <View style={styles.avatarContainer}>
+                <Image
+                    style={styles.avatarImage}
+                    source={ElomiasAvatar}
+                />
+                <Text
+                    style={styles.avatarText}
+                >
+                    Elomia
+                </Text>
+            </View>
         </View>
     );
 };

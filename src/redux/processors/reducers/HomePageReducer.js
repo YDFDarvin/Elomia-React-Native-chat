@@ -9,19 +9,24 @@ import {
 } from "../../../consts";
 
 const initialState = {
-    messages: []
+    messages: [
+        {
+            created_at: Date.now(),
+            text: "Great! Thanks! Can you also check notebooks for me?",
+            isMyMessage: true,
+        },
+    ]
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case SELECT_FEMALE_TOPLISTS:
-            state.messages.push({
-                ...action.payload.message,
-                author: "Elomia"
-            });
-
+        case null:
             return {
-                ...state
+                ...state,
+                messages: state.messages.push({
+                    ...action.payload.message,
+                    isMyMessage: "Elomia"
+                })
             };
     }
 
