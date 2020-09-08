@@ -1,5 +1,8 @@
-export const SELECT_FEMALE_TOPLISTS = "SELECT_FEMALE_TOPLISTS";
+export const CHANGE_INPUT = "CHANGE_INPUT";
 
-export const dispatchSelectFemaleToplists = () => ({
-    type: SELECT_FEMALE_TOPLISTS
+export const dispatchChangeInput = (message) => ({
+    type: CHANGE_INPUT,
+    payload: {
+        message
+    }
 });

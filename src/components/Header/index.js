@@ -9,7 +9,6 @@ import styles from "./styles";
 
 const ElomiasAvatar = require("../../assets/images/avatar.png");
 
-
 const Index = ({
     backCallback,
     navigation

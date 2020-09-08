@@ -3,11 +3,8 @@ import {StatusBar, StyleSheet} from 'react-native';
 export default StyleSheet.create({
     container: {
         paddingTop: StatusBar.currentHeight,
-        justifyContent: 'space-between',
         flexDirection: "row",
         alignItems: "center",
-        borderBottomWidth: 1,
-        borderBottomColor: "#E2E2E2",
         backgroundColor: "#A4B3EA"
     },
     avatarContainer: {

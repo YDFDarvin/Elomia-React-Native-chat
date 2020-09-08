@@ -29,6 +29,7 @@
 		D716F17373FE46698DF17C37 /* Lato.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D321A4B6103847398119FC51 /* Lato.ttf */; };
 		C3B026EE7C334139ADDD1F9B /* LatoBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C36C3C346B7544C7961F8336 /* LatoBold.ttf */; };
 		8CE1D1F9DDA74242BA1D3A6C /* LatoRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4192CB718F324FAEAB7C00EC /* LatoRegular.ttf */; };
+		40582B42A2294C6199533459 /* GilroyMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE79B69145294EBD90DE0636 /* GilroyMedium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		D321A4B6103847398119FC51 /* Lato.ttf */ = {isa = PBXFileReference; name = "Lato.ttf"; path = "../src/assets/fonts/Lato.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C36C3C346B7544C7961F8336 /* LatoBold.ttf */ = {isa = PBXFileReference; name = "LatoBold.ttf"; path = "../src/assets/fonts/LatoBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		4192CB718F324FAEAB7C00EC /* LatoRegular.ttf */ = {isa = PBXFileReference; name = "LatoRegular.ttf"; path = "../src/assets/fonts/LatoRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EE79B69145294EBD90DE0636 /* GilroyMedium.ttf */ = {isa = PBXFileReference; name = "GilroyMedium.ttf"; path = "../src/assets/fonts/GilroyMedium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				D321A4B6103847398119FC51 /* Lato.ttf */,
 				C36C3C346B7544C7961F8336 /* LatoBold.ttf */,
 				4192CB718F324FAEAB7C00EC /* LatoRegular.ttf */,
+				EE79B69145294EBD90DE0636 /* GilroyMedium.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				D716F17373FE46698DF17C37 /* Lato.ttf in Resources */,
 				C3B026EE7C334139ADDD1F9B /* LatoBold.ttf in Resources */,
 				8CE1D1F9DDA74242BA1D3A6C /* LatoRegular.ttf in Resources */,
+				40582B42A2294C6199533459 /* GilroyMedium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

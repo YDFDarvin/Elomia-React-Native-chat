@@ -3,40 +3,41 @@ import React, {
 } from 'react';
 import {
     View,
-    Text,
-    SafeAreaView,
-    StatusBar
+    StatusBar,
+    Dimensions
 } from 'react-native';
-import Header from "../Header/index";
-import {
-    useSelector
-} from "react-redux";
+import Header from "../Header";
+import Chat from "../Chat";
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 const HomePage = ({
     navigation
 }) => {
     const goBack = useCallback(() => navigation.goBack(), [navigation])
-    const messages = useSelector(state => state.HomePageReducer.messages);
     //realize fetch data and async getting data
 
     return (
-        <SafeAreaView
+        <View
             style={{
-                flex: 1
+                height: "100%",
+                backgroundColor: "#EFF3FF"
             }}
         >
+            <Header
+                backCallback={goBack}
+                navigation={navigation}
+            />
             <View
-
+                style={{
+                    height: screenHeight - StatusBar.currentHeight - 94,
+                    justifyContent: "flex-end"
+                }}
             >
-                <Header
-                    backCallback={goBack}
-                    navigation={navigation}
-                    cogVisible={true}
-                    arrowVisible={false}
-                />
-                <Text>BODY</Text>
+                <Chat />
             </View>
-        </SafeAreaView>
+        </View>
     );
 };
 
