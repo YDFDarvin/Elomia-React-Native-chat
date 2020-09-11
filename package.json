@@ -20,6 +20,7 @@
     "expo-updates": "~0.2.10",
     "font-awesome": "^4.7.0",
     "metro-config": "^0.63.0",
+    "moment": "^2.27.0",
     "qs-stringify": "^1.2.1",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",

@@ -19,12 +19,7 @@ function* fetchResponseFromElomia(action) {
             isMyMessage: true
         }))
         yield put(dispatchPushMessage({
-            text: `IP: ${response.ip}, delta: ${gotResponseDate - action.payload.message.created_at} ms, text: ${action.payload.message.text};`,
-            created_at: action.payload.message.created_at,
-            isMyMessage: false
-        }))
-        yield put(dispatchPushMessage({
-            text: `short variant of text`,
+            text: `IP: ${response.ip}, delta: ${gotResponseDate - action.payload.message.created_at} ms, text: ${action.payload.message.text}`,
             created_at: action.payload.message.created_at,
             isMyMessage: false
         }))

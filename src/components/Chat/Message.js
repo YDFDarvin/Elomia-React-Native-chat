@@ -11,7 +11,9 @@ const Message = ({
     text,
     isMyMessage,
     created_at,
-    index
+    index,
+    isPrevMessageMine,
+    isNextMessageMine
 }) => {
     const createdAt = useMemo(() => created_at, [created_at])
     const textMessage = useMemo(() => text, [text])
@@ -23,6 +25,10 @@ const Message = ({
     let borderBottomRightRadius = 20;
     let borderTopLeftRadius = 20;
     let borderTopRightRadius = 20;
+
+    if (isMyMessage === isPrevMessageMine) {
+        marginTop = 24
+    }
 
     return (
             <Text

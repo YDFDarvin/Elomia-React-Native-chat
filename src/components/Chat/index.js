@@ -9,12 +9,12 @@ import {
 import {
     View,
     TextInput,
-    KeyboardAvoidingView,
     FlatList,
     StatusBar,
     TouchableOpacity,
     Dimensions,
 } from 'react-native';
+import moment from 'moment';
 
 import {
     dispatchChangeInput,
@@ -72,12 +72,15 @@ const Index = ({
                         }}
                         data={messages}
                         inverted={true}
-                        renderItem={({item, index}) => {
-
-                            return (
-                                <Message {...item} index={index} />
+                        renderItem={({item, index}) => (
+                                <Message
+                                    {...item}
+                                    index={index}
+                                    isPrevMessageMine={messages[index - 1] ? messages[index - 1].isMyMessage : null}
+                                    isNextMessageMine={messages[index + 1] ? messages[index + 1].isMyMessage : null}
+                                />
                             )
-                        }}
+                        }
                         keyExtractor={({item, index}) => index}
                     />
                 ) : null
