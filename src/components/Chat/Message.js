@@ -5,6 +5,7 @@ import React, {
 import {
     Text
 } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const Message = ({
     text,
@@ -17,10 +18,14 @@ const Message = ({
     return (
         <Text
             style={{
+                width: "auto",
                 fontFamily: "GilroyMedium",
-                color: "black",
-                fontSize: 16
+                color: isMyMessage ? "white" : "#07144A",
+                padding: 0,
+                margin: 0,
+                fontSize: RFValue(16),
             }}
+            onLayout
         >
             {textMessage}
         </Text>

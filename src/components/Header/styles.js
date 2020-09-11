@@ -5,7 +5,8 @@ export default StyleSheet.create({
         paddingTop: StatusBar.currentHeight,
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#A4B3EA"
+        backgroundColor: "#A4B3EA",
+        zIndex: 999
     },
     avatarContainer: {
         flexDirection: "row",

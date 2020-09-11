@@ -1,55 +1,77 @@
 import {
     CHANGE_INPUT,
+    PUSH_MESSAGE,
+    LOAD_DATA
 } from "../../actions";
 
 const initialState = {
-    messages: [
+    messages:  [
         {
-            created_at: 1599602129979,
-            text: "Great! Thanks! Can you also check notebooks for me?",
-            isMyMessage: true,
+            "created_at": 1599602149979,
+            "isMyMessage": true,
+            "text": "Y"
         }, {
-            created_at: 1599602129979,
-            text: "I was planning to buy a book for you today",
-            isMyMessage: false,
+            "created_at": 1599602149979,
+            "isMyMessage": true,
+            "text": "Great! Thanks! Can you also check notebooks for me? Last message"
         }, {
-            created_at: 1599602149979,
-            text: "Which one you like?",
-            isMyMessage: false,
+            "created_at": 1599602149979,
+            "isMyMessage": false,
+            "text": "Which one you like?"
         }, {
-            created_at: 1599602149979,
-            text: "Great! Thanks! Can you also check notebooks for me?",
-            isMyMessage: true,
-        },
-    ],
+            "created_at": 1599602129979,
+            "isMyMessage": false,
+            "text": "I was planning to buy a book for you today"
+        }, {
+            "created_at": 1599602129979,
+            "isMyMessage": true,
+            "text": "Great! Thanks! Can you also check notebooks for me?"
+        }, {
+            "created_at": 1599602149979,
+            "isMyMessage": true,
+            "text": "Great! Thanks! Can you also check notebooks for me? Last message"
+        }, {
+            "created_at": 1599602149979,
+            "isMyMessage": false,
+            "text": "Which one you like?"
+        }, {
+            "created_at": 1599602129979,
+            "isMyMessage": false,
+            "text": "I was planning to buy a book for you today"
+        }, {
+            "created_at": 1599602129979,
+            "isMyMessage": true,
+            "text": "Great! Thanks! Can you also check notebooks for me?"
+    }]
+    ,
     input: ""
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_INPUT:
-            console.log(action.payload.message)
             return {
                 ...state,
-                input: action.payload.message
+                input: action.payload.message,
             }
         //case push new message
-        case null:
-            return {
-                ...state,
-                messages: state.messages.push({
+        case PUSH_MESSAGE:
+            if (state.input) {
+                state.messages.unshift({
                     ...action.payload.message,
-                    isMyMessage: "Elomia"
+                    text: state.input
                 })
+                state.input = "";
+            }
+
+            return {
+                ...state
             };
         //load messages from remote source
-        case null:
+        case LOAD_DATA:
             return {
                 ...state,
-                messages: state.messages.push({
-                    ...action.payload.message,
-                    isMyMessage: "Elomia"
-                })
+                messages: action.payload.messages,
             };
     }
 

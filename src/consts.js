@@ -1,5 +1,5 @@
-export const DOMAIN_HOST = 'https://shopway.com/api/'
+export const DOMAIN_HOST = ''
 
-export const ALL_GENDER = "all";
-export const MALE_GENDER = "male";
-export const FEMALE_GENDER = "female";
+export const KEYBOARD_DID_SHOW = "keyboardDidShow";
+export const KEYBOARD_DID_HIDE = "keyboardDidHide";
+
