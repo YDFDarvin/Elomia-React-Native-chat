@@ -1,14 +1,11 @@
-import { all } from 'redux-saga/effects'
+import { spawn } from 'redux-saga/effects'
+
 import {
-} from "../../actions";
-import {
-    fetchProductWrapper
-} from "./fetchProducts"
+    fetchResponseFromElomiaWrapper
+} from "./fetchResponseFromElomia"
 
 function* rootSaga() {
-    yield all([
-        fetchProductWrapper
-    ])
+    yield spawn(fetchResponseFromElomiaWrapper)
 }
 
 export default rootSaga;

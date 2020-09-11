@@ -5,45 +5,7 @@ import {
 } from "../../actions";
 
 const initialState = {
-    messages:  [
-        {
-            "created_at": 1599602149979,
-            "isMyMessage": true,
-            "text": "Y"
-        }, {
-            "created_at": 1599602149979,
-            "isMyMessage": true,
-            "text": "Great! Thanks! Can you also check notebooks for me? Last message"
-        }, {
-            "created_at": 1599602149979,
-            "isMyMessage": false,
-            "text": "Which one you like?"
-        }, {
-            "created_at": 1599602129979,
-            "isMyMessage": false,
-            "text": "I was planning to buy a book for you today"
-        }, {
-            "created_at": 1599602129979,
-            "isMyMessage": true,
-            "text": "Great! Thanks! Can you also check notebooks for me?"
-        }, {
-            "created_at": 1599602149979,
-            "isMyMessage": true,
-            "text": "Great! Thanks! Can you also check notebooks for me? Last message"
-        }, {
-            "created_at": 1599602149979,
-            "isMyMessage": false,
-            "text": "Which one you like?"
-        }, {
-            "created_at": 1599602129979,
-            "isMyMessage": false,
-            "text": "I was planning to buy a book for you today"
-        }, {
-            "created_at": 1599602129979,
-            "isMyMessage": true,
-            "text": "Great! Thanks! Can you also check notebooks for me?"
-    }]
-    ,
+    messages:  [],
     input: ""
 };
 
@@ -56,10 +18,9 @@ export default (state = initialState, action) => {
             }
         //case push new message
         case PUSH_MESSAGE:
-            if (state.input) {
+            if (action.payload.message.text) {
                 state.messages.unshift({
                     ...action.payload.message,
-                    text: state.input
                 })
                 state.input = "";
             }
@@ -69,9 +30,10 @@ export default (state = initialState, action) => {
             };
         //load messages from remote source
         case LOAD_DATA:
+            state.messages = action.payload.messages;
+
             return {
                 ...state,
-                messages: action.payload.messages,
             };
     }
 

@@ -14,12 +14,11 @@ import {
     StatusBar,
     TouchableOpacity,
     Dimensions,
-    ScrollView
 } from 'react-native';
 
 import {
     dispatchChangeInput,
-    dispatchPushMessage
+    dispatchFetchDataFromElomia
 } from "../../redux/actions";
 
 import styles from "./styles";
@@ -48,11 +47,7 @@ const Index = ({
     const dispatch = useDispatch();
 
     const onInputChange = useCallback((val) => dispatch(dispatchChangeInput(val)), [dispatch])
-    const onIconPress = useCallback(() => dispatch(dispatchPushMessage({
-        created_at: Date.now(),
-        isMyMessage: true
-    })
-    ), [dispatch])
+    const onIconPress = useCallback(() => dispatch(dispatchFetchDataFromElomia(input, true)), [input, dispatch])
 
     return (
         <View>
@@ -70,45 +65,17 @@ const Index = ({
                                 bottomInputFormHeight -
                                 marginTopOfInput -
                                 marginBottomOfInput
-                            )
+                            ),
+
                         }}
                         contentContainerStyle={{
-
                         }}
                         data={messages}
                         inverted={true}
                         renderItem={({item, index}) => {
-                            let marginTop = 7;
-                            let marginBottom = 0;
-
-                            let borderBottomLeftRadius = 20;
-                            let borderBottomRightRadius = 20;
-                            let borderTopLeftRadius = 20;
-                            let borderTopRightRadius = 20;
 
                             return (
-                                <View
-                                    style={{
-                                        backgroundColor: item.isMyMessage ? "#5C74DD" : "white",
-
-                                        paddingRight: 50,
-                                        paddingLeft: 13,
-                                        paddingTop: 11,
-                                        paddingBottom: 15,
-
-                                        marginRight: 18,
-                                        marginLeft: 18,
-                                        marginTop,
-                                        marginBottom,
-
-                                        borderBottomRightRadius: item.isMyMessage ? 3 : 20,
-                                        borderBottomLeftRadius: !item.isMyMessage ? 3 : 20,
-                                        borderTopLeftRadius,
-                                        borderTopRightRadius,
-                                    }}
-                                >
-                                    <Message {...item} />
-                                </View>
+                                <Message {...item} index={index} />
                             )
                         }}
                         keyExtractor={({item, index}) => index}
@@ -128,19 +95,7 @@ const Index = ({
                 }}
             >
                 <View
-                    style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-
-                        backgroundColor: "white",
-
-                        paddingLeft: sideInputPadding,
-
-                        borderRadius: 25,
-
-                        maxHeight: '20%',
-                        minHeight: 50
-                    }}
+                    style={styles.inputWrapper}
                     onLayout={(e) => setBottomInputFormHeight(e.nativeEvent.layout.height)}
                 >
                     <TextInput
@@ -160,20 +115,28 @@ const Index = ({
                         onChangeText={onInputChange}
                         defaultValue={input}
                     />
-                    <TouchableOpacity
-                        style={{
-                            width: buttonSize,
-                            aspectRatio: 1,
-                            justifyContent: "center",
-                        }}
-                        onPress={onIconPress}
-                    >
-                        <PlaneLogo/>
-                    </TouchableOpacity>
+                    {
+                        input ? (
+                            <TouchableOpacity
+                                style={{
+                                    width: buttonSize,
+                                    aspectRatio: 1,
+                                    justifyContent: "center",
+                                }}
+                                onPress={onIconPress}
+                            >
+                                <PlaneLogo style={{
+
+                                }} />
+                            </TouchableOpacity>
+                        ) : null
+                    }
+
                 </View>
             </View>
         </View>
     );
 };
+
 
 export default Index;
